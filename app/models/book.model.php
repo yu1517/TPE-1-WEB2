@@ -13,7 +13,7 @@ class BookModel {
         //$db = $this->connect();
 
         //2.Enviar la consulta(2 sub pasos: prepare y execte)
-        $query = $this->db->prepare("SELECT books.id, books.id_author, books.title, books.genre, authors.name FROM books INNER JOIN authors ON books.id_author = authors.id_author"); FROM books ");
+        $query = $this->db->prepare("SELECT * FROM books" );
         $query->execute();
 
         //3. Obtengo la respuesta con un fetchAll(porque)
@@ -22,20 +22,35 @@ class BookModel {
         return $books;
     }
 
+    function getRegisterBookById($id){
+        $query = $this->db->prepare("SELECT * FROM books where `id`=$id");
+        $query->execute();
+        $bookRegister = $query->fetchAll(PDO::FETCH_OBJ);
+        return $bookRegister;
+    }
+
     //Inserta una tarea en la base de datos.
 
-    function insertBook($title, $genre) {
+    public function insertBook($title, $genre, $id_author) {
 
-        $query = $this->db->prepare("INSERT INTO books (title, genre) VALUES (?, ?)");
-        $query->execute([$title, $genre, false]);
+        $query = $this->db->prepare("INSERT INTO books (title, genre, id_author) VALUES (?, ?, ?)");
+        $query->execute([$title, $genre,$id_author]);
 
+        header("Location: " . BASE_URL . 'book');
         return $this->db->lastInsertId();
+    }
+
+    public function insertEditBook($title, $genre, $id_author){        
+            $query = $this->db->prepare("UPDATE `books` SET title=?, genre=? WHERE id=?");
+            $query->execute([$title, $genre, $id_author]);
+            header("Location: " . BASE_URL. 'book');
     }
 
     //Elimina una tarea dado su id
     function deleteBookById($id){
         $query = $this->db->prepare('DELETE FROM books WHERE id = ?');
         $query->execute([$id]);
+        header("Location: " . BASE_URL . 'book');
     }
 }
 

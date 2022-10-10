@@ -16,5 +16,10 @@ class AuthorView{
 
         //mostrar el tpl
         $this->smarty->display('authorList.tpl');
-}
+    }
+
+    function showEditAuthor($authors){
+        $this->smarty->assign('authors', $authors); 
+        $this->smarty->display('showEditAuthor.tpl');
+    }
 }

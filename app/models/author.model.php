@@ -22,6 +22,20 @@ class AuthorModel {
 
         return $author;
     }
+    
+    function getRegisterAuthorById($id){
+        $query = $this->db->prepare("SELECT * FROM authors");
+        $query->execute();
+        $authorRegister = $query->fetchAll(PDO::FETCH_OBJ);
+        return $authorRegister;
+    }
+
+    public function getRegisterAuthorById2($id){
+        $query = $this->db->prepare("SELECT * FROM authors where `id_author`=$id");
+        $query->execute();
+        $authorRegister = $query->fetchAll(PDO::FETCH_OBJ);
+        return $authorRegister;
+    }
 
     function insertAuthor($name, $nationality, $birthdate) { 
         $query = $this->db->prepare("INSERT INTO authors (name,nationality, birthdate) VALUES (?, ?, ?)");
@@ -30,6 +44,13 @@ class AuthorModel {
         return $this->db->lastInsertId();
         header("Location: " . BASE_URL. 'author');
     }
+    public function insertEditAuthor($name, $nationality, $birthdate, $id_author){
+
+        $query = $this->db->prepare("UPDATE `authors` SET name=?, nationality=?, birthdate=? WHERE id_author=?");
+        $query->execute([$name, $nationality, $birthdate, $id_author]);
+        header("Location: " . BASE_URL. 'author');
+}
+
     function deleteAuthorById($id){
         $query = $this->db->prepare('DELETE FROM authors WHERE id_author = ?');
         $query->execute([$id]);

@@ -8,6 +8,7 @@
             <th scope="col">Titulo</th>
             <th scope="col">Genero</th>
             <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -21,41 +22,28 @@
         {/foreach}
     </tbody>
 </table>
-<form action="addBook" method="POST" class="my-4">
+
+<h1>EDITAR</h1>
+
+<form action="editBook/{$book->id}" method="POST" class="my-4">
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Seleccione una opcion</label>
         <select name="id_author" class="form-control">
-        {foreach from =$authors item=$item}
-            <option value="{$item->id_author}">{$item->name}</option>
-        {/foreach}
+            {foreach from =$authors item=$item}
+                <option value="{$item->id_author}">{$item->name}</option>
+            {/foreach}
         </select>
-    </div> 
-{include file="formBook.tpl"}
+    </div>
+        {foreach from=$books item=$book}   
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Titulo</label>
+<input type="text" class="form-control" name="titulo" value="{$book->title}">
+    </div>
+    <div class="mb-3">
+        <label for="genero" class="form-label">Genero</label>
+<input type="text" class="form-control" name="genero" value="{$book->genre}">
+    </div>
+        {/foreach}
+    <button type="submit" class="btn btn-primary mt-2">Editar</button>
+</form>
 {include file="footer.tpl"}
-
-
-
-
-
-
-
-
-{*
-{include file="header.tpl"}
-
-<!-- lista de tareas -->
-<ul class="list-group">
-    {foreach from=$books item=$book}
-        <li class='list-group-item d-flex justify-content-between align-items-center'>
-            <span> <b>{$book->title}</b> - {$book->genre} - {$book->name}</span>
-            <div class="ml-auto">                
-                <a href='delete/{$book->id}' type='button' class='btn btn-danger'>Borrar</a>
-            </div>
-        </li>
-    {/foreach}
-</ul>
-
-<p class="mt-3"><small>Mostrando {$count} Libros</small></p>
-
-{include file="footer.tpl"}
-*}

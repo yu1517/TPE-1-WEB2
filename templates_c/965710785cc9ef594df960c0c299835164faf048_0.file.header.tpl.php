@@ -1,8 +1,32 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 4.2.1, created on 2022-10-10 22:03:14
+  from 'C:\xampp\htdocs\web2\TPE\templates\header.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.2.1',
+  'unifunc' => 'content_63447a82979815_63843965',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '965710785cc9ef594df960c0c299835164faf048' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\web2\\TPE\\templates\\header.tpl',
+      1 => 1665431704,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_63447a82979815_63843965 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <base href="{BASE_URL}">
+    <base href="<?php echo BASE_URL;?>
+">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,20 +58,22 @@
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-light" type="submit">Search</button>                        
                     </form>
-                    {if !isset($smarty.session.USER_ID)}
+                    <?php if (!(isset($_SESSION['USER_ID']))) {?>
                         <a href="login"><button class="btn btn-outline-light" type="button"
                                 style="margin: 0 1rem;">Login</button></a>
-                    {else}
+                    <?php } else { ?>
                         <a href="logout"><button class="btn btn-outline-light" type="button"
                                 style="margin: 0 1rem;">Logout</button></a>
                         <span>
-                            <p style="color:#777777">User: {$smarty.session.USER_EMAIL}</p>
+                            <p style="color:#777777">User: <?php echo $_SESSION['USER_EMAIL'];?>
+</p>
                         </span>
-                    {/if}
+                    <?php }?>
                 </div>
             </div>
         </nav>
 </header>
 
     <!-- inicio main container -->
-<main class="container">
+<main class="container"><?php }
+}

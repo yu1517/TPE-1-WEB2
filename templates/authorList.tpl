@@ -17,6 +17,7 @@
                 <td>{$author->nationality}</td>
                 <td>{$author->birthdate}</td>
                 <td><a href='deleteAuthor/{$author->id_author}' type='button' class='btn btn-danger'>Borrar</a></td>
+                <td><a href='showEditAuthor/{$author->id_author}' type='button' class='btn btn-danger ml-auto'>Editar</a></td>
             </tr>
         {/foreach}
     </tbody>

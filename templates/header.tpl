@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        <img src="images/portada1.jpg" style="width: 100%; height: 18rem; object-fit:cover;">
+        <img src="imgs/portada1.jpg" style="width: 100%; height: 18rem; object-fit:cover;">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" Style="margin-bottom: 2rem;">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarColor01">

@@ -36,7 +36,15 @@ class BookController{
         $genre = $_POST['genero'];
         $id_author = $_POST['id_author'];
 
-        $id = $this->model->insertBook($title, $genre, $id_author);
+        //agrego imagen
+        if ($_FILES['input_name']['type'] =="image/jpg" ||
+            $_FILES['input_name']['type'] =="image/jpeg"||
+            $_FILES['input_name']['type'] =="image/png" ){
+            $this->model->insertBook($title, $genre, $id_author, $_FILES['input_name']['tmp_name']);
+            }
+            else{
+                $id = $this->model->insertBook($title, $genre, $id_author);
+            }
     }
 
     function  showEditBook($id){

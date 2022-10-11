@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-10 22:03:14
+/* Smarty version 4.2.1, created on 2022-10-11 03:03:39
   from 'C:\xampp\htdocs\web2\TPE\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63447a82979815_63843965',
+  'unifunc' => 'content_6344c0ebae1e13_61757871',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '965710785cc9ef594df960c0c299835164faf048' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE\\templates\\header.tpl',
-      1 => 1665431704,
+      1 => 1665450217,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63447a82979815_63843965 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6344c0ebae1e13_61757871 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +38,7 @@ function content_63447a82979815_63843965 (Smarty_Internal_Template $_smarty_tpl)
 
 <body>
     <header>
-        <img src="images/portada1.jpg" style="width: 100%; height: 18rem; object-fit:cover;">
+        <img src="imgs/portada1.jpg" style="width: 100%; height: 18rem; object-fit:cover;">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" Style="margin-bottom: 2rem;">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarColor01">

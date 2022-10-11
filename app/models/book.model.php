@@ -31,13 +31,21 @@ class BookModel {
 
     //Inserta una tarea en la base de datos.
 
-    public function insertBook($title, $genre, $id_author) {
+    public function insertBook($title, $genre, $id_author, $imagen = null) {
+        $pathImg = null;
+        if ($imagen)
+        $pathImg = $this->uploadImage($imagen);
 
-        $query = $this->db->prepare("INSERT INTO books (title, genre, id_author) VALUES (?, ?, ?)");
-        $query->execute([$title, $genre,$id_author]);
+        $query = $this->db->prepare("INSERT INTO books (title, genre, id_author, imagen) VALUES (?, ?, ?, ?)");
+        $query->execute([$title, $genre, $id_author, $pathImg]);
 
         header("Location: " . BASE_URL . 'book');
         return $this->db->lastInsertId();
+    }
+    private function uploadImage($image){
+        $target = 'imgs/books/' . uniqid() . '.jpg';
+        move_uploaded_file($image, $target);
+        return $target;
     }
 
     public function insertEditBook($title, $genre, $id_author){        

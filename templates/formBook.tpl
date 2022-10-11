@@ -6,5 +6,7 @@
         <label for="genero" class="form-label">Genero</label>
         <input type="text" class="form-control"  name="genero">
     </div>
+    <div class="mb-3">
+    <input type="file" class="form-control" name="input_name" id="imageToUpload">
     <button type="submit" class="btn btn-primary mt-2">Guardar</button>
 </form>

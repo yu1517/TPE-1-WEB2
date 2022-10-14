@@ -22,6 +22,13 @@ class AuthorModel {
 
         return $author;
     }
+
+    public function getNameById($id){
+        $query = $this->db->prepare("SELECT `name`FROM `authors` WHERE `id_author`= ?");
+        $query->execute([$id]);
+        $name = $query->fetch(PDO::FETCH_OBJ);
+        return $name;
+    }
     
     function getRegisterAuthorById($id){
         $query = $this->db->prepare("SELECT * FROM authors");
@@ -44,6 +51,7 @@ class AuthorModel {
         return $this->db->lastInsertId();
         header("Location: " . BASE_URL. 'author');
     }
+    
     public function insertEditAuthor($name, $nationality, $birthdate, $id_author){
 
         $query = $this->db->prepare("UPDATE `authors` SET name=?, nationality=?, birthdate=? WHERE id_author=?");

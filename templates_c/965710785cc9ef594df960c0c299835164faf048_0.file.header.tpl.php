@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-11 03:03:39
+/* Smarty version 4.2.1, created on 2022-10-14 03:59:39
   from 'C:\xampp\htdocs\web2\TPE\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6344c0ebae1e13_61757871',
+  'unifunc' => 'content_6348c28b7af094_49577158',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '965710785cc9ef594df960c0c299835164faf048' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE\\templates\\header.tpl',
-      1 => 1665450217,
+      1 => 1665712041,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6344c0ebae1e13_61757871 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6348c28b7af094_49577158 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -54,10 +54,29 @@ function content_6344c0ebae1e13_61757871 (Smarty_Internal_Template $_smarty_tpl)
                             <a class="nav-link" href="author">Autores</a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-light" type="submit">Search</button>                        
-                    </form>
+                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Categoria</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['authors']->value, 'author');
+$_smarty_tpl->tpl_vars['author']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['author']->value) {
+$_smarty_tpl->tpl_vars['author']->do_else = false;
+?>
+                                    <li><a class="dropdown-item" href="filter/<?php echo $_smarty_tpl->tpl_vars['author']->value->id_author;?>
+"><?php echo $_smarty_tpl->tpl_vars['author']->value->name;?>
+</a></li>
+                                <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
                     <?php if (!(isset($_SESSION['USER_ID']))) {?>
                         <a href="login"><button class="btn btn-outline-light" type="button"
                                 style="margin: 0 1rem;">Login</button></a>

@@ -11,6 +11,7 @@ class AuthorController{
         //intancion el modelo y la vista de la lista author
         $this->model = new AuthorModel();
         $this->view = new AuthorView();
+        
         $authHelper = new AuthHelper();
         $authHelper->checkLoggedIn();
     }
@@ -41,8 +42,9 @@ class AuthorController{
     $name = $_POST['name'];
     $nationality = $_POST['nationality'];
     $birthdate = $_POST['birthdate'];
+    
+    $this->model->insertEditAuthor($name, $nationality, $birthdate, $id);
 
-        $this->model->insertEditAuthor($name, $nationality, $birthdate, $id);
     }
     }
 

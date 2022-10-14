@@ -2,6 +2,7 @@
 class BookModel {
 
     private $db;
+    
     public function __construct(){
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=db_tpe;charset=utf8' , 'root', '');
     }
@@ -39,9 +40,9 @@ class BookModel {
         $query = $this->db->prepare("INSERT INTO books (title, genre, id_author, imagen) VALUES (?, ?, ?, ?)");
         $query->execute([$title, $genre, $id_author, $pathImg]);
 
-        header("Location: " . BASE_URL . 'book');
         return $this->db->lastInsertId();
     }
+
     private function uploadImage($image){
         $target = 'imgs/books/' . uniqid() . '.jpg';
         move_uploaded_file($image, $target);

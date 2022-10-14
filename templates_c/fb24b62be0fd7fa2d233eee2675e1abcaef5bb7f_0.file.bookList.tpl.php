@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-11 03:40:27
+/* Smarty version 4.2.1, created on 2022-10-13 22:43:24
   from 'C:\xampp\htdocs\web2\TPE\templates\bookList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6344c98bf060f2_32263189',
+  'unifunc' => 'content_6348786ca33f89_34449041',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fb24b62be0fd7fa2d233eee2675e1abcaef5bb7f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE\\templates\\bookList.tpl',
-      1 => 1665452424,
+      1 => 1665615952,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6344c98bf060f2_32263189 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6348786ca33f89_34449041 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -54,10 +54,10 @@ $_smarty_tpl->tpl_vars['book']->do_else = false;
 " style="width:25px;"/>
                 <?php }?>
                 </td>
-                <td><a href='deleteBook/<?php echo $_smarty_tpl->tpl_vars['book']->value->id;?>
-' type='button' class='btn btn-danger'>Borrar</a></td>
                 <td><a href='showEdit/<?php echo $_smarty_tpl->tpl_vars['book']->value->id;?>
 ' type='button' class='btn btn-danger ml-auto'>Editar</a></td>
+                <td><a href='deleteBook/<?php echo $_smarty_tpl->tpl_vars['book']->value->id;?>
+' type='button' class='btn btn-danger'>Borrar</a></td>
             </tr>
         <?php
 }
@@ -65,6 +65,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
     </tbody>
 </table>
+
 <form action="addBook" method="POST" class="my-4" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Seleccione una opcion</label>

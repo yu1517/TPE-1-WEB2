@@ -30,10 +30,20 @@
                             <a class="nav-link" href="author">Autores</a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-light" type="submit">Search</button>                        
-                    </form>
+                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Categoria</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                {foreach from=$authors item=$author}
+                                    <li><a class="dropdown-item" href="filter/{$author->id_author}">{$author->name}</a></li>
+                                {/foreach}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
                     {if !isset($smarty.session.USER_ID)}
                         <a href="login"><button class="btn btn-outline-light" type="button"
                                 style="margin: 0 1rem;">Login</button></a>

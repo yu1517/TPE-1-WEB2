@@ -19,13 +19,14 @@
                     <img src="{$book->imagen}" style="width:25px;"/>
                 {/if}
                 </td>
-                <td><a href='deleteBook/{$book->id}' type='button' class='btn btn-danger'>Borrar</a></td>
                 <td><a href='showEdit/{$book->id}' type='button' class='btn btn-danger ml-auto'>Editar</a></td>
+                <td><a href='deleteBook/{$book->id}' type='button' class='btn btn-danger'>Borrar</a></td>
             </tr>
         {/foreach}
 
     </tbody>
 </table>
+
 <form action="addBook" method="POST" class="my-4" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Seleccione una opcion</label>

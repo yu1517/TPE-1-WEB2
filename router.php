@@ -41,6 +41,11 @@ switch ($params[0]) {
         $authController = new AuthController();
         $authController->logout();
         break;
+    case 'filter':
+        $id = $params[1];
+        $homeController = new HomeController();
+        $homeController->filterCategory($id);
+        break;  
     case 'book':
         $bookController = new BookController();
         $bookController->showBooks();
@@ -49,9 +54,6 @@ switch ($params[0]) {
         $authorController = new AuthorController();
         $authorController->showAuthor();
         break;
-    /*case 'add':
-        $bookController->addBook();
-        break;*/
     case 'addBook':
         $bookController = new BookController();
         $bookController->addBook();

@@ -19,4 +19,5 @@
             </tr>
         {/foreach}
     </tbody>
+</table>
 {include file="footer.tpl"}

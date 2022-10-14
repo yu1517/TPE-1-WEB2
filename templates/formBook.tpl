@@ -8,5 +8,6 @@
     </div>
     <div class="mb-3">
     <input type="file" class="form-control" name="input_name" id="imageToUpload">
+    </div>
     <button type="submit" class="btn btn-primary mt-2">Guardar</button>
 </form>

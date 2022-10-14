@@ -15,4 +15,11 @@ class HomeModel{
 
         return $books;
     }
+    public function getFilter($id){
+        $query = $this->db->prepare("SELECT * FROM books WHERE id_author = ?"); 
+        $query->execute([$id]);
+
+        $filter = $query->fetchAll(PDO::FETCH_OBJ);
+        return $filter;
+    }
 }

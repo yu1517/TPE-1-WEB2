@@ -45,6 +45,7 @@ class BookController{
             else{
                 $id = $this->model->insertBook($title, $genre, $id_author);
             }
+            header("Location: " . BASE_URL. 'book');
     }
 
     function  showEditBook($id){

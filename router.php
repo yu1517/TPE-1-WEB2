@@ -1,5 +1,4 @@
 <?php
-require_once 'app/controllers/home.controller.php';
 require_once 'app/controllers/book.controller.php';
 require_once 'app/controllers/author.controller.php';
 require_once 'app/controllers/auth.controller.php';
@@ -12,7 +11,7 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }else{
-    $action = 'home'; // acción por defecto
+    $action = 'book'; // acción por defecto
 }
 
 // parsea la accion Ej: dev/juan --> ['dev', juan] o Ej: suma/1/2 --> ['suma', 1, 2]
@@ -25,26 +24,22 @@ $params = explode('/', $action);
 // tabla de ruteo
 //determina que camino seguir segun la accion
 switch ($params[0]) {
-    case 'home':
-        $homeController = new HomeController();
-        $homeController->showHome();
-        break;
-    case 'login':
-        $authController = new AuthController();
-        $authController->showFormLogin();
-        break;
-    case 'validate':
-        $authController = new AuthController();
-        $authController->validateUser();
-        break;
-    case 'logout':
-        $authController = new AuthController();
-        $authController->logout();
-        break;
+    // case 'login':
+    //     $authController = new AuthController();
+    //     $authController->showFormLogin();
+    //     break;
+    // case 'validate':
+    //     $authController = new AuthController();
+    //     $authController->validateUser();
+    //     break;
+    // case 'logout':
+    //     $authController = new AuthController();
+    //     $authController->logout();
+    //     break;
     case 'filter':
         $id = $params[1];
-        $homeController = new HomeController();
-        $homeController->filterCategory($id);
+        $bookController = new BookController();
+        $bookController->filterCategory($id);
         break;  
     case 'book':
         $bookController = new BookController();
@@ -53,6 +48,11 @@ switch ($params[0]) {
     case 'author':
         $authorController = new AuthorController();
         $authorController->showAuthor();
+        break;
+    case 'detail':
+        $id = $params[1];
+        $bookController = new BookController();
+        $bookController->showDetail($id);
         break;
     case 'addBook':
         $bookController = new BookController();

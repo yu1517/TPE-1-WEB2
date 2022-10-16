@@ -13,7 +13,7 @@ class AuthorController{
         $this->view = new AuthorView();
         
         $authHelper = new AuthHelper();
-        $authHelper->checkLoggedIn();
+        //$authHelper->checkLoggedIn();
     }
 
     function showAuthor(){

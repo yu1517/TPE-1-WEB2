@@ -9,12 +9,10 @@ class BookModel {
 
     //Devuelve la lista de tareas completa
     function getAllBooks(){
-
         //1. Abro la conexion
-        //$db = $this->connect();
 
         //2.Enviar la consulta(2 sub pasos: prepare y execte)
-        $query = $this->db->prepare("SELECT * FROM books" );
+        $query = $this->db->prepare("SELECT books.id, books.id_author, books.title, books.genre, books.imagen,authors.id_author, authors.name, authors.nationality, authors.birthdate, authors.img FROM books INNER JOIN authors ON books.id_author = authors.id_author");
         $query->execute();
 
         //3. Obtengo la respuesta con un fetchAll(porque)
@@ -60,6 +58,14 @@ class BookModel {
         $query = $this->db->prepare('DELETE FROM books WHERE id = ?');
         $query->execute([$id]);
         header("Location: " . BASE_URL . 'book');
+    }
+    
+    public function getFilter($id){
+        $query = $this->db->prepare("SELECT * FROM books WHERE id_author = ?"); 
+        $query->execute([$id]);
+
+        $filter = $query->fetchAll(PDO::FETCH_OBJ);
+        return $filter;
     }
 }
 

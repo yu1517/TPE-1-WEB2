@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-14 03:59:39
+/* Smarty version 4.2.1, created on 2022-10-15 21:47:06
   from 'C:\xampp\htdocs\web2\TPE\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6348c28b7af094_49577158',
+  'unifunc' => 'content_634b0e3aaf8c42_87192245',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '965710785cc9ef594df960c0c299835164faf048' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE\\templates\\header.tpl',
-      1 => 1665712041,
+      1 => 1665862117,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6348c28b7af094_49577158 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634b0e3aaf8c42_87192245 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -42,11 +42,7 @@ function content_6348c28b7af094_49577158 (Smarty_Internal_Template $_smarty_tpl)
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" Style="margin-bottom: 2rem;">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarColor01">
-                    <!--<img src="images/logo22.png" style="width: 3.5rem;">-->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="home">Home</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="book">Libros</a>
                         </li>
@@ -76,7 +72,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             </ul>
                         </li>
                     </ul>
-                </div>
                     <?php if (!(isset($_SESSION['USER_ID']))) {?>
                         <a href="login"><button class="btn btn-outline-light" type="button"
                                 style="margin: 0 1rem;">Login</button></a>
@@ -88,6 +83,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </p>
                         </span>
                     <?php }?>
+                </div>
                 </div>
             </div>
         </nav>

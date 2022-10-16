@@ -18,11 +18,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" Style="margin-bottom: 2rem;">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarColor01">
-                    <!--<img src="images/logo22.png" style="width: 3.5rem;">-->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="home">Home</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="book">Libros</a>
                         </li>
@@ -43,7 +39,6 @@
                             </ul>
                         </li>
                     </ul>
-                </div>
                     {if !isset($smarty.session.USER_ID)}
                         <a href="login"><button class="btn btn-outline-light" type="button"
                                 style="margin: 0 1rem;">Login</button></a>
@@ -54,6 +49,7 @@
                             <p style="color:#777777">User: {$smarty.session.USER_EMAIL}</p>
                         </span>
                     {/if}
+                </div>
                 </div>
             </div>
         </nav>

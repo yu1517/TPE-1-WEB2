@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-10 20:46:16
+/* Smarty version 4.2.1, created on 2022-10-15 21:47:34
   from 'C:\xampp\htdocs\web2\TPE\templates\authorList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6344687868b400_18489518',
+  'unifunc' => 'content_634b0e568c6457_19248487',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '888eb46e922ed57d24532a8c4ec85b8577e6ee8f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE\\templates\\authorList.tpl',
-      1 => 1665427574,
+      1 => 1665862753,
       2 => 'file',
     ),
   ),
@@ -23,13 +23,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6344687868b400_18489518 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634b0e568c6457_19248487 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <!-- lista de tareas -->
 <table class="table table-hover">
-
     <thead>
         <tr>
             <th scope="col">Nombre</th>

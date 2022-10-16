@@ -2,7 +2,6 @@
 
 <!-- lista de tareas -->
 <table class="table table-hover">
-
     <thead>
         <tr>
             <th scope="col">Nombre</th>

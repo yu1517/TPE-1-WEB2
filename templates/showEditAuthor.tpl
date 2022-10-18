@@ -19,7 +19,7 @@
     </tbody>
 </table>
 
-<h1>Edit Form</h1>
+<h1>Editar Autor</h1>
 <form action="editAuthor/{$author->id_author}" method="POST" class="my-4">
     {foreach from=$authors item=$author }
         <div class="mb-3">

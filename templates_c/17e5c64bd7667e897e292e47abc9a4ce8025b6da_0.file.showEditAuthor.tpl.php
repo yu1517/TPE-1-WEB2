@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-10 20:52:48
+/* Smarty version 4.2.1, created on 2022-10-18 02:19:58
   from 'C:\xampp\htdocs\web2\TPE\templates\showEditAuthor.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63446a00aca733_06284376',
+  'unifunc' => 'content_634df12e4eeeb4_98572383',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '17e5c64bd7667e897e292e47abc9a4ce8025b6da' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE\\templates\\showEditAuthor.tpl',
-      1 => 1665427965,
+      1 => 1666040554,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_63446a00aca733_06284376 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634df12e4eeeb4_98572383 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <table class="table table-hover">
@@ -55,7 +55,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </tbody>
 </table>
 
-<h1>Edit Form</h1>
+<h1>Editar Autor</h1>
 <form action="editAuthor/<?php echo $_smarty_tpl->tpl_vars['author']->value->id_author;?>
 " method="POST" class="my-4">
     <?php

@@ -1,6 +1,7 @@
 <?php
 require_once './app/models/book.model.php';
 require_once './app/views/book.view.php';
+require_once './app/models/author.model.php';
 require_once './app/helper/auth.helper.php';
 
 
@@ -10,19 +11,21 @@ class BookController{
     private $model;
     private $view;
     private $modelAuthor;//voy a poder vincular el modelos de las dos tablas 
-    
 
     function __construct(){
         //instancio el modelo y la vista 
         $this->model = new BookModel();
         $this->view = new BookView();
         $this->modelAuthor = new AuthorModel();
-        $authHelper = new AuthHelper();
-       // $authHelper->checkLoggedIn();
+
+        if (session_status() != PHP_SESSION_ACTIVE) {
+            session_start();
+        } 
     }
 
     //Imprime la lista de tareas 
     public function showBooks(){
+        
         //obtiene las tareas del modelo
         $books = $this->model->getAllBooks();
         $modelAuthor = $this->modelAuthor->getAllAuthors();
@@ -30,12 +33,16 @@ class BookController{
         $this->view->showBooks($books, $modelAuthor);
     }
 
-    public function showDetail($id){
+    public function showDetail($id){        
+        $modelAuthor = $this->modelAuthor->getAllAuthors();
         $detail = $this->modelAuthor->getRegisterAuthorById2($id);
-        $this->view->showDetail($detail);
+        $this->view->showDetail($detail, $modelAuthor);
     }
 
     function addBook() {
+        $authHelper = new AuthHelper();
+        $authHelper->checkLoggedIn();
+        
         if((isset($_POST['titulo'])&&isset($_POST['genero']))&&isset($_POST['id_author'])&&!empty($_POST['titulo'])&&!empty($_POST['genero'])&&!empty($_POST['id_author'])){
         // TODO: validar entrada de datos
         $title = $_POST['titulo'];
@@ -55,12 +62,18 @@ class BookController{
     }
 
     function  showEditBook($id){
-            $books = $this->model->getRegisterBookById($id);
-            $author = $this->modelAuthor->getRegisterAuthorById($id);
-            $this->view->showEditBooks($books, $author);
+        $authHelper = new AuthHelper();
+        $authHelper->checkLoggedIn();
+
+        $books = $this->model->getRegisterBookById($id);
+        $author = $this->modelAuthor->getRegisterAuthorById($id);
+        $this->view->showEditBooks($books, $author);
     }
 
     function insertEditBook($id){
+        $authHelper = new AuthHelper();
+        $authHelper->checkLoggedIn();
+
         if((isset($_POST['titulo'])&&isset($_POST['genero']))&&isset($_POST['id_author'])&&!empty($_POST['titulo'])&&!empty($_POST['genero'])&&!empty($_POST['id_author'])){      
             $title = $_POST['titulo'];
             $genre = $_POST['genero'];
@@ -71,6 +84,9 @@ class BookController{
     }
 
     function deleteBooks($id) {
+        $authHelper = new AuthHelper();
+        $authHelper->checkLoggedIn();
+
         $this->model->deleteBookById($id);
     }
     public function filterCategory($id){

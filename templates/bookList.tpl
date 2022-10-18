@@ -1,6 +1,5 @@
 {include file="header.tpl"}
 
-<!-- lista de tareas -->
 <table class="table table-hover">
     <thead>
         <tr>
@@ -13,22 +12,25 @@
     <tbody>
         {foreach from=$books item=$book}
             <tr>
-                <td><a href="detail/{$book->id_author}" class="text-decoration-none text-dark">{$book->title}</a></td>
+                <td><a href="detail/{$book->id_author}" class="text-dark">{$book->title}</a></td>
                 <td>{$book->genre}</td>
                 <td>{$book->name}</td>
                 <td>{if isset($book->imagen)}
-                    <img src="{$book->imagen}" style="width:25px;"/>
-                {/if}
+                    <img src="{$book->imagen}" alt="{$book->title}" class="imgBookList"/>
+                    {/if}
                 </td>
+                {if isset($smarty.session.USER_ID)}
                 <td><a href='showEdit/{$book->id}' type='button' class='btn btn-danger ml-auto'>Editar</a></td>
                 <td><a href='deleteBook/{$book->id}' type='button' class='btn btn-danger'>Borrar</a></td>
+                {{/if}}
             </tr>
         {/foreach}
     </tbody>
 </table>
-<h1>Add Form</h1>
 
+{if isset($smarty.session.USER_ID)}
 {include file="formBook.tpl"}
+{{/if}}
 {include file="footer.tpl"}
 
 

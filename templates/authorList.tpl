@@ -15,13 +15,17 @@
                 <td>{$author->name}</td>
                 <td>{$author->nationality}</td>
                 <td>{$author->birthdate}</td>
-                <td><a href='deleteAuthor/{$author->id_author}' type='button' class='btn btn-danger'>Borrar</a></td>
+                {if isset($smarty.session.USER_ID)}
                 <td><a href='showEditAuthor/{$author->id_author}' type='button' class='btn btn-danger ml-auto'>Editar</a></td>
+                <td><a href='deleteAuthor/{$author->id_author}' type='button' class='btn btn-danger'>Borrar</a></td>
+                {/if}
             </tr>
         {/foreach}
     </tbody>
 </table>
+    {if isset($smarty.session.USER_ID)}
     {include file="formAuthor.tpl"}
+    {{/if}}
     {include file="footer.tpl"}
 
 

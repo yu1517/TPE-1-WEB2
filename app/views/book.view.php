@@ -26,7 +26,8 @@ class BookView{
         $this->smarty->assign('authors', $authors);
         $this->smarty->display('filterView.tpl');
     }
-    function showDetail($detail){
+    function showDetail($detail, $authors){
+        $this->smarty->assign('authors', $authors);
         $this->smarty->assign('detail', $detail);
         $this->smarty->display('showDetail.tpl');
     }

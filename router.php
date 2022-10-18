@@ -7,12 +7,12 @@ require_once 'app/controllers/auth.controller.php';
 //defino la base url para la construccion de links con urls semanticas
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
+$action = 'book'; // acción por defecto
 //lee la accion
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
-}else{
-    $action = 'book'; // acción por defecto
 }
+
 
 // parsea la accion Ej: dev/juan --> ['dev', juan] o Ej: suma/1/2 --> ['suma', 1, 2]
 $params = explode('/', $action);
@@ -24,18 +24,18 @@ $params = explode('/', $action);
 // tabla de ruteo
 //determina que camino seguir segun la accion
 switch ($params[0]) {
-    // case 'login':
-    //     $authController = new AuthController();
-    //     $authController->showFormLogin();
-    //     break;
-    // case 'validate':
-    //     $authController = new AuthController();
-    //     $authController->validateUser();
-    //     break;
-    // case 'logout':
-    //     $authController = new AuthController();
-    //     $authController->logout();
-    //     break;
+    case 'login':
+        $authController = new AuthController();
+        $authController->showFormLogin();
+        break;
+    case 'validate':
+        $authController = new AuthController();
+        $authController->validateUser();
+        break;
+    case 'logout':
+        $authController = new AuthController();
+        $authController->logout();
+        break;
     case 'filter':
         $id = $params[1];
         $bookController = new BookController();

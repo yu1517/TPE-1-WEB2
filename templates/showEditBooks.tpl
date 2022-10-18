@@ -23,7 +23,7 @@
     </tbody>
 </table>
 
-<h1>EDITAR</h1>
+<h1>Editar Libro</h1>
 
 <form action="editBook/{$book->id}" method="POST" class="my-4">
     <div class="mb-3">

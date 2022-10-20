@@ -16,8 +16,6 @@ class AuthorController{
     
 
     function showAuthor(){
-        $authHelper = new AuthHelper();
-        $authHelper->checkLoggedIn();
 
         //obtiene las tareas del modelo
         $authors = $this->model->getAllAuthors();
